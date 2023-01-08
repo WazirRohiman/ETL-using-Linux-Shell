@@ -1,0 +1,32 @@
+-- start the Postgres server
+start_postgres
+
+-- connect to postgres from terminal
+psql --username=postgres --host=localhost
+
+-- connect to database
+\c template1;
+
+-- create table
+CREATE TABLE access_log(timestamp TIMESTAMP, latitude float, longitude float, visitor_id char(37));
+
+-- run script
+bash cp-access-log.sh
+
+-- verify that the extracted file has been created correctly
+cat wal-extracted-data.sh
+
+-- -- run script
+bash cp-access-log.sh
+
+-- verify that the extracted file has been created correctly
+cat wal-extracted-data.sh
+
+-- after loading csv to postgres
+-- run script to check if all loaded correctly
+
+bash cp-access-log.sh
+
+-- run command below to verify if access_log table has data loaded 
+echo '\c template1; \\SELECT * from access_log;' | psql --username=postgres --host=localhost
+
